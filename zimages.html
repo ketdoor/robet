@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+    }
+
+    html {
+        box-sizing: border-box;
+        font-size: 62.5%;
+    }
+
+    body {
+        font-family: "Nunito", sans-serif;
+        color: #333;
+        font-weight: 300;
+        line-height: 1.6;
+    }
+
+    .section-image {
+        background-color: #f8f8f8;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .container {
+        width: 70%;
+        margin: 2rem auto;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 5vw);
+        grid-gap: 1.5rem;
+    }
+
+    .gallery__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .gallery__item--1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .gallery__item--2 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        animation: fadeIn 0.5s ease-out 0.4s both;
+    }
+
+    .gallery__item--3 {
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 6;
+        animation: fadeIn 0.5s ease-out 0.6s both;
+    }
+
+    .gallery__item--4 {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 6;
+        animation: fadeIn 0.5s ease-out 0.8s both;
+    }
+
+    .gallery__item--5 {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 6;
+        grid-row-end: 9;
+        animation: fadeIn 0.5s ease-out 0.9s both;
+    }
+
+    .gallery__item--6 {
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 6;
+        grid-row-end: 9;
+        animation: fadeIn 0.5s ease-out 1s both;
+    }
+
+    figure {
+        transition: 0.5s;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    figure:hover {
+        transform: scale(1.02);
+
+    }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom,
+                transparent,
+                rgba(5, 7, 20, 0.7));
+        opacity: 0;
+        transition: 0.5s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+    }
+
+    figure:hover .overlay {
+        opacity: 1;
+    }
+
+    .caption {
+        color: white;
+        font-size: 1.1em;
+        transform: translateY(20px);
+        transition: 0.5s ease;
+    }
+
+    figure:hover .caption {
+        transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .box-back-home{
+        display: flex;
+        justify-content: end;
+    }
+    @media (max-width: 992px) {
+        .gallery {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box-back-home{
+            display: flex !important;
+            justify-content: center !important;
+        }
+    }
+</style>
+<html class="wide wow-animation" lang="en">
+
+<head>
+    <title>images</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .ie-panel {
+            display: none;
+            background: #212121;
+            padding: 10px 0;
+            box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+            clear: both;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        html.ie-10 .ie-panel,
+        html.lt-ie-10 .ie-panel {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="preloader-body">
+            <div class="cssload-container"><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div>
+
+            <!-- Page Header-->
+            <header class="section page-header">
+                <!-- RD Navbar-->
+                <div class="rd-navbar-wrap">
+                    <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed"
+                        data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed"
+                        data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+                        data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                        data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                        data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px"
+                        data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true"
+                        data-xl-stick-up="true" data-xxl-stick-up="true">
+                        <div class="rd-navbar-main-outer">
+                            <div class="rd-navbar-main">
+                                <!-- RD Navbar Panel-->
+                                <div class="rd-navbar-panel">
+                                    <!-- RD Navbar Toggle-->
+                                    <button class="rd-navbar-toggle"
+                                        data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                                    <!-- RD Navbar Brand-->
+                                    <div class="rd-navbar-brand"><a class="brand" href="index.html"><img
+                                                src="logo0-01.png" alt="" width="223"
+                                                height="50" /></a></div>
+                                </div>
+                                <div class="rd-navbar-main-element">
+                                    <div class="rd-navbar-nav-wrap">
+                                        <!-- RD Navbar Share-->
+                                        <ul class="rd-navbar-nav">
+                                            <li class="rd-nav-item"><a class="rd-nav-link"
+                                                    href="index.html#home">الرئسية</a></li>
+                                            <li class="rd-nav-item"><a class="rd-nav-link" href="index.html#about">من
+                                                    نحن</a></li>
+                                            <li class="rd-nav-item"><a class="rd-nav-link"
+                                                    href="index.html#services">أقســـــــــــــــــــــــــــــــــــــــــام
+                                                    عملنا</a></li>
+                                            <li class="rd-nav-item"><a class="rd-nav-link"
+                                                    href="index.html#contact">تواصل معنا</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+        </div>
+        <!-- btn back home page -->
+        <!-- Page Content-->
+        <style>
+
+        </style>
+        <section class="section-image">
+            <div class="container">
+                
+                <div class=" mb-4 box-back-home">
+                    <a href="index.html#services" class="button button-secondary button-pipaluk">العودة الى أقسام عملنا</a>
+                </div>
+                <div class="gallery">
+                    <figure class="gallery__item gallery__item--1">
+                        <img src="ابواب.png" class="gallery__img" alt="Image 1">
+                        <div class="overlay">
+                            <div class="caption">ابواب</div>
+                        </div>
+                    </figure>
+                    <figure class="gallery__item gallery__item--2">
+                        <img src="اجهـزة اللکترونیة.png" class="gallery__img" alt="Image 2">
+                        <div class="overlay">
+                            <div class="caption">اجهـزة اللکترونیة</div>
+                        </div>
+                    </figure>
+                    <figure class="gallery__item gallery__item--3">
+                        <img src="الحائط الزوجاجي.png" class="gallery__img" alt="Image 3">
+                        <div class="overlay">
+                            <div class="caption">الحائــــط الزوجاجي</div>
+                        </div>
+                    </figure>
+                    <figure class="gallery__item gallery__item--4">
+                        <img src="شبابيك.png" class="gallery__img" alt="Image 4">
+                        <div class="overlay">
+                            <div class="caption">شبابيك</div>
+                        </div>
+                    </figure>
+                    <figure class="gallery__item gallery__item--5">
+                        <img src="محجرات.png" class="gallery__img" alt="Image 5">
+                        <div class="overlay">
+                            <div class="caption">محجرات</div>
+                        </div>
+                    </figure>
+                    <figure class="gallery__item gallery__item--6">
+                        <img src="مضــلات کهربائیـة.png" class="gallery__img" alt="Image 6">
+                        <div class="overlay">
+                            <div class="caption">مضــلات كهربائية</div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+
+        </section>
+    <!-- Page Footer-->
+    <footer class="section section-fluid footer-minimal context-dark px-0">
+        <div class="bg-gray-15">
+          <div class="container-fluid">
+            <div class="footer-minimal-inset oh">
+              <ul class="footer-list-category-2">
+                <li><a href="#home">الرئسية</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#services"> أقسـام عملنا</a></li>
+                <li><a href="#work"> أهم مشاريعنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+              </ul>
+            </div>
+            <div class="footer-about text-center py-3" style="border-top: 1px solid rgba(255, 255, 255, 0.13);">
+              <style>
+                @media (max-width: 768px) {
+                  .text-about {
+                    font-size: smaller !important;
+                  }
+                }
+              </style>
+              <p dir="rtl" style="text-align: justify;" class="px-lg-5 text-about">
+                بدأ كل شيء في عام 2005، حيث تم وضع حجر الأساس الأول لتأسيس شركة الروابط للمعادن، رؤيتنا هي أن نرى منتجنا
+                كلوحة فنية ترسمها نخبة الشخصيات، كما نخطط لعقد هدف ترسيخ الوطنية العراقية الصناعة وتمهيد الطريق للدخول إلى
+                الجزيرة العربية والمنطقة من خلال البوابات المحلية. يمثل فريق مجموعتنا قيمة حقيقية بالنسبة لنا، لذا نتعامل
+                معهم بشعار أعز كوادرنا. بالإضافة إلى ذلك، تتميز بحصولنا على شهادة الجودة العالمية ISO، والتي لا تمنح إلا
+                بناء على مراقبة الجودة والإشراف عليها في جميع مراحل التصنيع وخدمة ما بعد البيع اللاحقة. نسعى جاهدين لتقديم
+                الخدمات الاستشارية للشركة العربية الأولى في العالم وفي المنطقة، وبقدراتنا سنساهم في دعم الإصلاحالاقتصادي
+                في البلاد وخلق بيئة استثمارية كبرى.
+  
+              </p>
+            </div>
+            <div class="footer-minimal-bottom-panel text-sm-left"
+              style="border-bottom: 1px solid rgba(255, 255, 255, 0.13);">
+              <div class="row row-10 align-items-md-center">
+                <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+                  <div>
+                    <ul class="list-inline list-inline-sm footer-social-list-2">
+                      <li class="text-white"><a target="_blank" class="icon fa fa-facebook"
+                          href="https://www.facebook.com/rawabet.iq"></a>
+                      </li>
+                      <li class="text-white"><a target="_blank" class="icon fa fa-instagram"
+                          href="https://www.instagram.com/rawabet_metal/"></a></li>
+                      <li class="text-white"><a target="_blank"
+                          href="https://www.youtube.com/channel/UCa77A39fZ925QyeaoDmqfNw/featured">
+                          <svg style="transform: translateY(3.5px);" xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                            <path
+                              d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                          </svg>
+                        </a></li>
+                      <li class="text-white"><a target="_blank" class="icon fa fa-pinterest"
+                          href="https://www.pinterest.com/rawabetmetal/?invite_code=b443d4b56bcf4f07bda355fad2baa74a&sender=607704680876816021"></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 order-sm-first">
+                  <!-- Rights-->
+  
+                </div>
+                <!-- copyright -->
+              </div>
+            </div>
+  
+            <div class="footer-copy text-center py-3">
+              <p>جميع حقوق محفوة . شركة روابط للمعادن</p>
+              <!-- <p>&copy; 2025 شركة روابط للمعادن. جميع الحقوق محفوظة.</p> -->
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- coded by Himic-->
+</body>
+
+</html>
